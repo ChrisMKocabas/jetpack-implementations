@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.jetpackimplementations.view.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/first_second_frg"
+            app:destination="@id/secondFragment2" />
+        <action
+            android:id="@+id/first_to_crypto"
+            app:destination="@id/cryptoListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment2"
+        android:name="com.example.jetpackimplementations.view.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/second_first_frg"
+            app:destination="@id/firstFragment" />
+        <argument
+            android:name="info"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="-999" />
+    </fragment>
+    <fragment
+        android:id="@+id/cryptoListFragment"
+        android:name="com.example.jetpackimplementations.view.CryptoListFragment"
+        android:label="CryptoListFragment" >
+        <action
+            android:id="@+id/crypto_to_first"
+            app:destination="@id/firstFragment" />
+    </fragment>
+</navigation>
